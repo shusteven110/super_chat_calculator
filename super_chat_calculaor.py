@@ -94,7 +94,10 @@ while True:
     if "liveChatReplayContinuationData" in json_response["continuations"][0]:
         continuation = json_response["continuations"][0]["liveChatReplayContinuationData"]["continuation"]
         next_link = basic_link + continuation + '&hidden=false&pbj=1'
-        extract_superchat(json.loads(html)['response'])
+        try:
+            extract_superchat(json.loads(html)['response'])
+        except:
+            None
 
     else:
         jump_to += 1
